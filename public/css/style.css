@@ -1,0 +1,10 @@
+.jumbotron {
+    background-image: url("/img/Coffee_and_Newspaper.jpg");
+    background-size: 1280px;
+    height: 400px;
+}
+#title  {
+    background-color: rgba(128, 128, 128, 0.8);
+    text-align: center;
+    color: white;
+}
