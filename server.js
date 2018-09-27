@@ -32,8 +32,11 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/NYTimesScraper", { useNewUrlParser: true });
-
+// mongoose.connect("mongodb://localhost/NYTimesScraper", { useNewUrlParser: true });
+mongoose.Promise = Promise;
+mongoose.connect("mongodb://heroku_3bjjdrqz:lpqp917ajevlstqe3kfapbkeqd@ds149412.mlab.com:49412/heroku_3bjjdrqz", 
+{ useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 // Routes
 
 // A GET route for scraping the echoJS website
