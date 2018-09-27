@@ -13,7 +13,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT ||  3000;
 
 
 
@@ -33,9 +33,10 @@ app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/NYTimesScraper", { useNewUrlParser: true });
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://heroku_3bjjdrqz:lpqp917ajevlstqe3kfapbkeqd@ds149412.mlab.com:49412/heroku_3bjjdrqz", 
-{ useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.Promise = global.Promise;
+mongoose.connect(MONGODB_URI)
+
 mongoose.set('useCreateIndex', true);
 // Routes
 
